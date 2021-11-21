@@ -73,8 +73,15 @@ def tokenize(x_train, y_train, x_val, y_val):
         final_list_test.append([onehot_dict[preprocess_string(word)] for word in sent.lower().split()
                                 if preprocess_string(word) in onehot_dict.keys()])
 
-    encoded_train = [1 if label == 'positive' else 0 for label in y_train]
-    encoded_test = [1 if label == 'positive' else 0 for label in y_val]
+    encoded_train = [1 if label == 1 else 0 for label in y_train]
+    encoded_test = [1 if label == 1 else 0 for label in y_val]
+
+    # 위 코드는 원래 아래와 같음.
+    # encoded_train = [1 if label == 'positive' else 0 for label in y_train]
+    # encoded_test = [1 if label == 'positive' else 0 for label in y_val]
+
+
+
     return np.array(final_list_train), np.array(encoded_train), np.array(final_list_test), np.array(
         encoded_test), onehot_dict
 
@@ -108,6 +115,11 @@ dataiter = iter(train_loader)
 sample_x, sample_y = dataiter.next()
 
 print('Sample input size: ', sample_x.size()) # batch_size, seq_length
+
+
+
+# 이 아래로는 없다고 생각해도 좋음.
+
 
 
 class SentimentRNN(nn.Module):
