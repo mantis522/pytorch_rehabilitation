@@ -1,4 +1,5 @@
-## https://www.kaggle.com/arunmohan003/sentiment-analysis-using-lstm-pytorch
+# 출처는 https://www.kaggle.com/arunmohan003/sentiment-analysis-using-lstm-pytorch
+# 전처리 참고용으로만 사용할 것. 모델 실현 부분에서 에러뜸.
 
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
